@@ -1,5 +1,7 @@
 import java.awt.image.BufferedImage
 import java.lang.StringBuilder
+import java.io.*
+import java.util.*
 
 
 object imageCompressor {
@@ -45,7 +47,13 @@ object imageCompressor {
 				currCount = 1
 			}
 		}
-		return returnString.toString()
+		try {
+			BufferedWriter output = new BufferedWriter(new FileWriter(loc))
+			output.write(returnString.toString())
+			output.close()
+		} catch {
+			case ioe: IOException => println("Error writing to file")
+		}
 	}
 
 	def decodeImage(str: String, loc: String) = {
@@ -77,8 +85,8 @@ object imageCompressor {
 		}
 		try {
 			ImageIO.write(resultImage, "PNG", new File(loc))
-		} catch (IOException e) {
-			System.out.println("Error reading file")
+		} catch {
+			case ioe: IOException => println("Error reading file")
 		}
 	}
 
