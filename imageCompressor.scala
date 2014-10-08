@@ -5,13 +5,13 @@ import java.lang.StringBuilder
 object imageCompressor {
 	def main(args: Array[String]) = {
 		if (args.length != 3) {
-			println("[encode/decode] [file path]")
+			println("[encode/decode] [original file] [destination]")
 			System.exit(1)
 		} else {
 			if (args[0] == "encode") {
-				compressImage(getImage(args[1]))
+				compressImage(getImage(args[1]), args[2])
 			} else if (args[0] == "decode") {
-				decodeImage(args)
+				decodeImage(args[1], args[2])
 			}
 		}
 	}
