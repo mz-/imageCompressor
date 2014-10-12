@@ -6,8 +6,11 @@ object createImage {
 		//TODO
 	}
 
-	def createOneColor(color: Int, width: Int, height: Int, location: String) {
+	def create(color: Int, width: Int, height: Int, location: String, random: Boolean) {
 		val img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
+		if (random) {
+			//TODO: Implement random RGB values
+		}
 		for (x <- width - 1; y <- height - 1) {
 			img.setRGB(x, y, color)
 		}
@@ -17,4 +20,6 @@ object createImage {
 			case ioe: IOException => println("Error writing to file")
 		}
 	}
+
+
 }
