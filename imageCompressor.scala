@@ -20,6 +20,7 @@ object imageCompressor {
 
 
 	def getImage(file: String): BufferedImage = {
+		//Returns BufferedImage given a filename or file path
 		var BufferedImage img = null;
 		try {
 			img = ImageIO.read(new File(file))
