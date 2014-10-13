@@ -31,6 +31,7 @@ object imageCompressor {
 	}
 
 	def compressImage(image: BufferedImage, loc: String): String = {
+		//Compresses image using run length encoding, saving image data onto text file
 		val maxX = image.getWidth()
 		val maxY = image.getHeight()
 
@@ -58,6 +59,7 @@ object imageCompressor {
 	}
 
 	def decodeImage(str: String, loc: String) = {
+		//Parses text file and generates image given data
 		val width = getWidth(str)
 		val height = getHeight(str)
 		val resultImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
