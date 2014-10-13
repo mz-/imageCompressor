@@ -93,6 +93,8 @@ object imageCompressor {
 		}
 	}
 
+	//TODO: Possible encryption methods
+
 	//Abstraction issues here. Replace with better written get methods
 	def getValue(data: String): Int = {
 		return Integer.parseInt(data.split(".")[0])
